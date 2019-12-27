@@ -21,14 +21,14 @@ namespace MapApp
             InitializeComponent();
         }
 
-        private void SearchHistory_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new PageListNode());
-        }
+//        private void SearchHistory_Clicked(object sender, EventArgs e)
+//        {
+//            Navigation.PushAsync(new PageListNode());
+//        }
 
         private void DestinationHistory_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PageListNode());
+            Navigation.PushAsync(new PageListPlace());
         }
 
         private void GoToMap_Clicked(object sender, EventArgs e)

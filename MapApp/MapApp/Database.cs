@@ -9,7 +9,7 @@ namespace MapApp
     {
         string folder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 
-        public bool CreateDatabase()
+        public bool createDatabase()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace MapApp
 
         /*------------------------------------------------------------------------------------*/
 
-        public bool InsertNode(Node node)
+        public bool insertNode(Node node)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace MapApp
             }
         }
 
-        public List<Node> SelectNode()
+        public List<Node> selectNode()
         {
             try
             {
@@ -64,7 +64,7 @@ namespace MapApp
 
         /*------------------------------------------------------------------------------------*/
 
-        public bool InsertPlace(Place place)
+        public bool insertPlace(Place place)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace MapApp
             }
         }
 
-        public List<Place> SelectPlace()
+        public List<Place> selectPlace()
         {
             try
             {

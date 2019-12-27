@@ -15,12 +15,12 @@ namespace MapApp
 		public PageListPlace ()
 		{
             Database db;
-            List<Node> DSPlace;
+            List<Place> DSPlace;
 
             InitializeComponent();
 
             db = new Database();
-            DSPlace = db.SelectNode();
+            DSPlace = db.selectPlace();
             ListPlace.ItemsSource = DSPlace;
         }
     }

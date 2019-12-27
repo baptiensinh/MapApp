@@ -42,6 +42,7 @@ namespace MapApp
         }
 
         double latti, longi;
+        string addr;
         List<Place> listPlace = new List<Place>();
 
 
@@ -59,13 +60,15 @@ namespace MapApp
             IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(position);
             string address = possibleAddresses.FirstOrDefault();
 
+            
             Place place = new Place { PlaceName = Des.Text, Address = address, Lat = position.Latitude, Lng = position.Longitude };
-            if (db.InsertNode(node) == true && db.InsertPlace(place) == true)
+
+            if (db.insertNode(node) == true && db.insertPlace(place) == true)
                 DisplayAlert("Notification", "Latitude: " + position.Latitude.ToString() + "\nLongitude: " + position.Longitude.ToString() + "\nAddress: " + address, "OK");
             
-
             latti = position.Latitude;
             longi = position.Longitude;
+            addr = address;
 
             listPlace.Add(new Place
             {
@@ -82,29 +85,18 @@ namespace MapApp
         {
             try
             {
-                if (latti != null) DisplayAlert("sdfsdf", "dxc" + latti, "ok");
-                else
-                    DisplayAlert("xbjsh", "null", "ok");
-                /*
-                Geocoder geoCoder = new Geocoder();
-
-                IEnumerable<Position> approximateLocations = await geoCoder.GetPositionsForAddressAsync(Des.Text);
-                Position position = approximateLocations.FirstOrDefault();
-                //string coordinates = $"{position.Latitude}, {position.Longitude}";
                 
-                IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(position);
-                string address = possibleAddresses.FirstOrDefault();
-                */
-                
-                foreach (var place in "qlDes.db")
+                Pin pin = new Pin
                 {
-                    
-                    Position Position = new Position(latti, longi);
-                }
-                MyMap.ItemsSource = listPlace;
+                    Label = Des.Text,
+                    Address = addr,
+                    Type = PinType.Place,
+                    Position = new Position(latti, longi)
+                };
+                MyMap.Pins.Add(pin);
+                MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latti, longi), Distance.FromKilometers(1)));
 
                 var location = await Xamarin.Essentials.Geolocation.GetLocationAsync();
-                MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(location.Latitude, location.Longitude), Distance.FromKilometers(1)));
             }
             catch (Exception ex)
             {
@@ -114,30 +106,3 @@ namespace MapApp
        
     }
 }
-
-/*
-                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
-                Stream stream = assembly.GetManifestResourceStream("MapApp.Places.json");
-                string text = string.Empty;
-                using (var reader = new StreamReader(stream))
-                {
-                    text = reader.ReadToEnd();
-                }
-
-                var resultObject = JsonConvert.DeserializeObject<Places>(text);
-
-                foreach (var place in resultObject.results)
-                {
-                    placesList.Add(new Place
-                    {
-                        PlaceName = place.name,
-                        Address = place.vicinity,
-                        Location = place.geometry.location,
-                        Position = new Position(place.geometry.location.lat, place.geometry.location.lng),
-                        Icon = place.icon,
-                    });
-                }
-
-                MyMap.ItemsSource = placesList;
-                //PlacesListView.ItemsSource = placesList;
-                */

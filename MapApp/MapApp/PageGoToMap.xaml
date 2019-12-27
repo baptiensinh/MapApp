@@ -17,8 +17,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Text="Enter Destination" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <Entry x:Name="Des" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <Entry x:Name="Des" Placeholder="Enter Destination" Grid.Row="0" Grid.ColumnSpan="2"/>
         <Button Text="Search" Grid.Row="0" Grid.Column="2" Clicked="Search_Clicked"/>
 
         <maps:Map x:Name="MyMap" HasZoomEnabled="True" IsShowingUser="True" Grid.Row="1" Grid.ColumnSpan="3">

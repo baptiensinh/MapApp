@@ -11,7 +11,7 @@ namespace MapApp
             InitializeComponent();
 
             Database db = new Database();
-            db.CreateDatabase();
+            db.createDatabase();
 
             MainPage = new NavigationPage(new MainPage());
         }

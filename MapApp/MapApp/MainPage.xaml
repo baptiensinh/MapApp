@@ -9,7 +9,6 @@
 
     <StackLayout>
 
-        <Button x:Name="ListNode" Text="Search History" Clicked="SearchHistory_Clicked"/>
 
         <Button x:Name="ListPlace" Text="Destintion History" Clicked="DestinationHistory_Clicked"/>
 

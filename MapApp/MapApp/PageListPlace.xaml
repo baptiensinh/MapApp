@@ -4,10 +4,10 @@
              x:Class="MapApp.PageListPlace">
 
 
-    <ListView x:Name="ListPlace">
+    <ListView x:Name="ListPlace" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell Text="{Binding PlaceName}" TextColor="Blue" Detail="{Binding Address}" DetailColor="Aqua"/>
+                <TextCell Text="{Binding PlaceName}" Detail="{Binding Address}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
