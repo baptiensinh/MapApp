@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="MapApp.PageGoToMap">
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Enter Destination" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <Entry x:Name="Des" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <Button Text="Search" Grid.Row="0" Grid.Column="2" Clicked="Search_Clicked"/>
+
+        <maps:Map x:Name="MyMap" HasZoomEnabled="True" IsShowingUser="True" Grid.Row="1" Grid.ColumnSpan="3">
+            <maps:Map.ItemTemplate>
+                <DataTemplate>
+                    <maps:Pin Address="{Binding Address}"
+                              Label="{Binding PlaceName}" />
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
+
+        <Button Text="Street" Grid.Row="2" Grid.Column="0" VerticalOptions="End" Clicked="Street_Clicked" />
+        <Button Text="Satellite" Grid.Row="2" Grid.Column="1" VerticalOptions="End" Clicked="Satellite_Clicked"/>
+        <Button Text="Hybrid" Grid.Row="2" Grid.Column="2" VerticalOptions="End" Clicked="Hybrid_Clicked"/>
+
+    </Grid>
+
+</ContentPage>

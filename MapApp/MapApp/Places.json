@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": 10.869982,
+          "lng": 106.803058
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/flower-71.png",
+      "id": "ceb41ee",
+      "name": "University of Infomation Technology",
+      "place_id": "ChIJwYR707ptkFQRPVkcj_fXLIs",
+      "types": [ "school" ],
+      "vicinity": "Linh Trung, Thu Duc, Ho Chi Minh, Viet Nam"
+    }
+  ],
+  "status": "OK"
+}
