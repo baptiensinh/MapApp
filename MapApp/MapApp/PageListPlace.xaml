@@ -7,7 +7,7 @@
     <ListView x:Name="ListPlace" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding PlaceName}" Detail="{Binding Address}" />
+                <TextCell Text="{Binding PlaceName}" TextColor="Blue" Detail="{Binding Address}" DetailColor="Aqua"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

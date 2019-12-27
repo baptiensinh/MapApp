@@ -5,11 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              mc:Ignorable="d"
+             BackgroundImageSource="background.jpg"
              x:Class="MapApp.MainPage">
 
-    <StackLayout>
-
-
+    <StackLayout >
+        
         <Button x:Name="ListPlace" Text="Destintion History" Clicked="DestinationHistory_Clicked"/>
 
         <Button Text="Go To Map" Clicked="GoToMap_Clicked"/>

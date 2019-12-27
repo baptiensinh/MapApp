@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using Map = Xamarin.Essentials.Map;
 
 namespace MapApp
 {
@@ -85,7 +86,6 @@ namespace MapApp
         {
             try
             {
-                
                 Pin pin = new Pin
                 {
                     Label = Des.Text,
@@ -95,6 +95,12 @@ namespace MapApp
                 };
                 MyMap.Pins.Add(pin);
                 MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latti, longi), Distance.FromKilometers(1)));
+
+                var locat = new Location(latti, longi);
+            //    var options = new MapLaunchOptions { Name = addr };
+                var options = new MapLaunchOptions { NavigationMode = NavigationMode.None };
+
+                await Map.OpenAsync(locat, options);
 
                 var location = await Xamarin.Essentials.Geolocation.GetLocationAsync();
             }
